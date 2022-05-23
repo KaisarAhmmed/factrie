@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LOGO from "../../Images/logo-footer.png";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { ImMap2 } from "react-icons/im";
+import { BsTelephone } from "react-icons/bs";
+import { MdOutlineEmail } from "react-icons/md";
 
 const Footer = () => {
     return (
@@ -116,6 +119,31 @@ const Footer = () => {
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">
                             Contact Us
                         </h3>
+                        <p className="text-[#999] text-[15px] leading-7 mb-4">
+                            We are leader in the Factory and Industrial area. We
+                            do not believe in the sales culture.
+                        </p>
+                        <ul>
+                            <li className="flex mb-4">
+                                <ImMap2 className="text-[#FE5D15] mr-6 text-[22px] mt-1" />
+                                <p className="text-[#999] text-[15px] leading-6 font-normal">
+                                    143 Castle Road 517 district, kiyev port
+                                    south Canada
+                                </p>
+                            </li>
+                            <li className="flex mb-4">
+                                <BsTelephone className="text-[#FE5D15] mr-6 text-[20px] mt-1" />
+                                <p className="text-[#999] text-[15px] leading-6 font-normal">
+                                    +880 1712 001122
+                                </p>
+                            </li>
+                            <li className="flex">
+                                <MdOutlineEmail className="text-[#FE5D15] mr-6 text-[20px] mt-1" />
+                                <p className="text-[#999] text-[15px] leading-6 font-normal">
+                                    info@themecafe.net
+                                </p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
