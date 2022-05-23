@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* button  utilities */
+.theme-btn {
+    @apply py-2 px-2 mx-4 text-[#222222] inline-block hover:text-[#FE5D15] uppercase duration-300 tracking-wide;
 }
