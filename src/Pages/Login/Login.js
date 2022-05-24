@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -6,6 +6,7 @@ import auth from "../../firebase.config";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import Loading from "../../Components/Loading/Loading";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
     const {
@@ -19,7 +20,10 @@ const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user);
+
     let logInError;
+    let from = location.state?.from?.pathname || "/";
 
     if (loading) {
         return <Loading></Loading>;
@@ -32,8 +36,6 @@ const Login = () => {
             </p>
         );
     }
-
-    let from = location.state?.from?.pathname || "/";
 
     const onSubmit = (data) => {
         signInWithEmailAndPassword(data.email, data.password);

@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import useProfile from "../../Hooks/useProfile";
 import UserImage from "../../Images/user-placeholder.png";
 
 const Profile = () => {
-    const [currentUser] = useOutletContext();
+    const [userData] = useOutletContext();
 
     const {
         email,
@@ -16,13 +15,13 @@ const Profile = () => {
         postcode,
         linkedIn,
         education,
-    } = useProfile(currentUser);
+    } = userData;
 
     return (
         <div className="container mx-auto flex justify-center gap-7">
             <div className="w-4/12 text-center">
                 <img
-                    className="w-32 rounded-full mx-auto mb-8"
+                    className="w-32 h-32 object-cover rounded-full mx-auto mb-8"
                     src={img ? img : UserImage}
                     alt="userphoto"
                 />

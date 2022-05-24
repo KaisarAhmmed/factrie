@@ -3,11 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import auth from "../../firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import useProfile from "../../Hooks/useProfile";
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
 
-    const [currentUser, setCurrentUser] = useState(user.email);
+    const userData = useProfile(user.email);
 
     return (
         <>
@@ -63,7 +64,7 @@ const Dashboard = () => {
                     </ul>
                 </div>
                 <div className="w-9/12">
-                    <Outlet context={[currentUser]}></Outlet>
+                    <Outlet context={[userData]}></Outlet>
                 </div>
             </div>
         </>
