@@ -96,17 +96,6 @@ const Header = () => {
                                 <li className="menu-url">
                                     <Link to="/dashboard">Dashboard</Link>
                                 </li>
-                                {/* <li className="menu-url">
-                                    <button
-                                        className=""
-                                        onClick={handleSignOut}
-                                    >
-                                        <span>
-                                            {user.displayName}
-                                            <span>Sign Out</span>
-                                        </span>
-                                    </button>
-                                </li> */}
                                 <li>
                                     <div className="avatar relative group">
                                         <div className="w-10 rounded-full">

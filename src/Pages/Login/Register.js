@@ -4,13 +4,15 @@ import {
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
 import Loading from "../../Components/Loading/Loading";
 import auth from "../../firebase.config";
+import useToken from "../../Hooks/useToken";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
+    const navigate = useNavigate();
     const {
         register,
         formState: { errors },
@@ -22,14 +24,19 @@ const Register = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+    const [token] = useToken(user);
+
     if (loading || updating) {
         return <Loading></Loading>;
+    }
+
+    if (token) {
+        navigate("/dashboard");
     }
 
     const onSubmit = async (data) => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log("updated");
     };
 
     return (
@@ -40,7 +47,7 @@ const Register = () => {
                     <h3 className="text-center text-2xl font-semibold mb-8">
                         Please Register
                     </h3>
-                    <form onClick={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full">
                             <input
                                 type="text"

@@ -12,6 +12,13 @@ import ResetPassword from "./Pages/Login/ResetPassword";
 import NotFound from "./Pages/NotFound/NotFound";
 import Products from "./Pages/Products/Products";
 import Reviews from "./Pages/Reviews/Reviews";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import User from "./Pages/Dashboard/User";
+import AddProduct from "./Pages/Dashboard/AddProduct";
+import AdminData from "./Pages/Dashboard/AdminData";
+import Profile from "./Pages/Dashboard/Profile";
+import ProfileEdit from "./Pages/Dashboard/ProfileEdit";
 
 function App() {
     return (
@@ -30,7 +37,22 @@ function App() {
                             <Dashboard />
                         </RequireAuth>
                     }
-                ></Route>
+                >
+                    <Route index element={<AdminData></AdminData>}></Route>
+                    <Route path="/dashboard/user" element={<User />}></Route>
+                    <Route
+                        path="/dashboard/profile"
+                        element={<Profile />}
+                    ></Route>
+                    <Route
+                        path="/dashboard/profile/edit"
+                        element={<ProfileEdit />}
+                    ></Route>
+                    <Route
+                        path="/dashboard/add-product"
+                        element={<AddProduct />}
+                    ></Route>
+                </Route>
                 <Route path="/register" element={<Register />}></Route>
                 <Route
                     path="/reset-password"
@@ -40,6 +62,7 @@ function App() {
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
             <Footer />
+            <ToastContainer />
         </div>
     );
 }

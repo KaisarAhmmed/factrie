@@ -47,7 +47,7 @@ const Login = () => {
                     <h3 className="text-center text-2xl font-semibold mb-8">
                         Please Login
                     </h3>
-                    <form onClick={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full">
                             <input
                                 type="email"
