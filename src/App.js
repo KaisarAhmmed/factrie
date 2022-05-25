@@ -19,6 +19,9 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 import AdminData from "./Pages/Dashboard/AdminData";
 import Profile from "./Pages/Dashboard/Profile";
 import ProfileEdit from "./Pages/Dashboard/ProfileEdit";
+import Purchase from "./Pages/Purchase/Purchase";
+import ProductDetail from "./Pages/Products/ProductDetail";
+import OrderHistory from "./Pages/Dashboard/OrderHistory";
 
 function App() {
     return (
@@ -30,6 +33,18 @@ function App() {
                 <Route path="/reviews" element={<Reviews />}></Route>
                 <Route path="/blog" element={<Blog />}></Route>
                 <Route path="/login" element={<Login />}></Route>
+                <Route
+                    path="/product-detail/:productId"
+                    element={<ProductDetail />}
+                ></Route>
+                <Route
+                    path="/purchase/:productId/:orderAmount"
+                    element={
+                        <RequireAuth>
+                            <Purchase />
+                        </RequireAuth>
+                    }
+                ></Route>
                 <Route
                     path="/dashboard"
                     element={
@@ -51,6 +66,10 @@ function App() {
                     <Route
                         path="/dashboard/add-product"
                         element={<AddProduct />}
+                    ></Route>
+                    <Route
+                        path="/dashboard/my-order-history"
+                        element={<OrderHistory />}
                     ></Route>
                 </Route>
                 <Route path="/register" element={<Register />}></Route>

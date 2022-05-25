@@ -43,9 +43,9 @@ const Dashboard = () => {
                         <li>
                             <Link
                                 className="p-4 block border-b"
-                                to="/dashboard/orders"
+                                to="/dashboard/my-order-history"
                             >
-                                Orders
+                                My Order History
                             </Link>
                         </li>
                         <li>

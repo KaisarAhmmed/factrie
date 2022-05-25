@@ -1,12 +1,18 @@
 import React from "react";
 import Breadcrumb from "../../Components/Breadcrumb/Breadcrumb";
+import Product from "./Product";
+import useProducts from "../../Hooks/useProducts";
 
 const Products = () => {
+    const [products, setProducts] = useProducts();
+
     return (
         <>
             <Breadcrumb pageTitle={"All Products"} />
-            <div>
-                <h2>Products</h2>
+            <div className="container mx-auto grid grid-cols-4 py-20 gap-7">
+                {products.map((item) => (
+                    <Product key={item._id} data={item} />
+                ))}
             </div>
         </>
     );
