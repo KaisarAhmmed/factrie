@@ -16,7 +16,7 @@ const Product = ({ data }) => {
         <div className="border border-solid border-[#ddd] p-4 hover:shadow-lg duration-300 hover:-translate-y-[2px] group">
             <div className="mb-5">
                 <img
-                    className="w-auto h-40 object-cover mx-auto duration-300"
+                    className="w-auto lg:h-40 h-auto object-cover mx-auto duration-300"
                     src={img}
                     alt={name}
                 />

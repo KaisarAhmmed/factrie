@@ -9,7 +9,7 @@ const Products = () => {
     return (
         <>
             <Breadcrumb pageTitle={"All Products"} />
-            <div className="container mx-auto grid grid-cols-4 py-20 gap-7">
+            <div className="container mx-auto grid lg:grid-cols-4 grid-cols-1 py-20 gap-7">
                 {products.map((item) => (
                     <Product key={item._id} data={item} />
                 ))}

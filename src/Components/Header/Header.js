@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import LOGO from "../../Images/logo-v1.png";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
@@ -7,19 +7,25 @@ import auth from "../../firebase.config";
 import { signOut } from "firebase/auth";
 import UserPlaceholder from "../../Images/user-placeholder.png";
 import useProfile from "../../Hooks/useProfile";
+import { BiMenu } from "react-icons/bi";
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const curUser = useProfile(user?.email);
+    const [menu, setMenu] = useState(false);
 
     const handleSignOut = () => {
         signOut(auth);
         localStorage.removeItem("accessToken");
     };
 
+    const handleMobileMenu = () => {
+        setMenu(!menu);
+    };
+
     return (
         <>
-            <div className="bg-[#292929]">
+            <div className="bg-[#292929] hidden lg:block">
                 <div className="container py-3.5 mx-auto flex text-white font-light">
                     <div className="w-6/12 font-[15px] text-white">
                         Welcome to our{" "}
@@ -57,7 +63,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="container py-7 mx-auto flex">
-                <div className="w-4/12 flex items-center">
+                <div className="lg:w-4/12 w-full flex items-center justify-between">
                     <Link className="inline" to="/">
                         <img
                             className="h-[37px]"
@@ -65,8 +71,18 @@ const Header = () => {
                             alt="manufacturer"
                         />
                     </Link>
+                    <span
+                        className="py-2 mr-2 cursor-pointer"
+                        onClick={handleMobileMenu}
+                    >
+                        <BiMenu className="text-4xl" />
+                    </span>
                 </div>
-                <div className="w-8/12">
+                <div
+                    className={`lg:w-8/12 w-full hidden lg:block duration-300 ${
+                        menu ? "active" : ""
+                    }`}
+                >
                     <ul className="flex justify-end items-center">
                         <li>
                             <Link className="menu-url" to="/">

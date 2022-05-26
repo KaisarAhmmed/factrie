@@ -8,7 +8,7 @@ const SingleReview = ({ data }) => {
     return (
         <div className="border border-solid p-5 rounded flex flex-col justify-between">
             <p className="text-[#777] mb-4">{reviewText}</p>
-            <div className="flex justify-start items-center">
+            <div className="flex lg:flex-row flex-col justify-start items-center">
                 <img
                     src={reviewerImg ? reviewerImg : UserPlaceholder}
                     alt={reviewerName}

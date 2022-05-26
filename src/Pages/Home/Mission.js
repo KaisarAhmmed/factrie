@@ -5,15 +5,15 @@ import { SiHandshake } from "react-icons/si";
 
 const Mission = () => {
     return (
-        <div className="py-20 bg-[#f9f9f9]">
+        <div className="lg:py-20 py-16 bg-[#f9f9f9]">
             <div className="container mx-auto">
                 <div className="w-full">
-                    <h2 className="text-center text-[30px] font-bold uppercase pb-9">
+                    <h2 className="text-center lg:text-[30px] text-[24px] font-bold uppercase pb-9">
                         Our Mission
                     </h2>
                 </div>
             </div>
-            <div className="container mx-auto grid grid-cols-4 gap-7">
+            <div className="container mx-auto grid lg:grid-cols-4 grid-cols-1 gap-7">
                 <div className="px-4 py-6 text-center hover:shadow-lg duration-300 hover:-translate-y-[4px] hover:bg-white">
                     <AiFillTool className="mx-auto text-4xl mb-4 text-[#FE5D15]" />
                     <h3 className="text-[20px] font-semibold mb-4">

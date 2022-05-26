@@ -6,13 +6,13 @@ import { BsTools } from "react-icons/bs";
 
 const Business = () => {
     return (
-        <div className="py-20 bg-[#f9f9f9] relative">
+        <div className="lg:py-20 py-10 bg-[#f9f9f9] relative">
             <div
-                className="absolute w-[47%] h-full right-0 top-0 bg-cover bg-no-repeat bg-center"
+                className="lg:absolute lg:block hidden relative lg:w-[47%] w-full h-full right-0 top-0 bg-cover bg-no-repeat bg-center"
                 style={{ backgroundImage: `url(${BusinessImage})` }}
             ></div>
             <div className="container mx-auto flex justify-start py-20 items-center gap-10">
-                <div className="w-6/12">
+                <div className="lg:w-6/12 w-full">
                     <h2 className="text-3xl font-semibold text-black mb-4">
                         25+ Years Of Experiences For Give You Better Results.
                     </h2>
@@ -24,7 +24,7 @@ const Business = () => {
                         solution. Bring to the table win-win survival strategies
                         to ensure proactive domination.
                     </p>
-                    <div className="w-full grid grid-cols-4 gap-3">
+                    <div className="w-full grid lg:grid-cols-4 grid-cols-2 gap-3">
                         <div className="text-center p-3 bg-white duration-300 hover:shadow-lg">
                             <FaUsers className="mx-auto text-4xl mb-2 text-[#FD5C16]" />
                             <p className="font-semibold tex-[18px]">

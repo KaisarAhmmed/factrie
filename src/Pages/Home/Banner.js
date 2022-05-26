@@ -8,9 +8,9 @@ const Banner = () => {
             className="bg-[#f5f5f5] w-full bg-cover bg-center relative bg-no-repeat before:absolute before:content-[''] before:h-full before:w-full before:bg-black before:opacity-70 before:z-10 before:left-0 before:top-0"
             style={{ backgroundImage: `url(${BannerImage})` }}
         >
-            <div className="container mx-auto py-20 flex justify-center text-center gap-8 items-center h-[700px] relative z-20">
-                <div className="w-8/12">
-                    <h1 className="text-[50px] font-bold leading-12 uppercase text-white mb-5">
+            <div className="container mx-auto py-20 flex justify-center text-center gap-8 items-center lg:h-[700px] relative z-20">
+                <div className="lg:w-8/12 w-full">
+                    <h1 className="lg:text-[50px] text-[25px] font-bold leading-12 uppercase text-white mb-5">
                         Your trusted motorcycle spare parts manufacturer
                     </h1>
                     <p className="text-white font-light text-[18px] mb-5">

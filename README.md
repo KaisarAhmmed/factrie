@@ -1,3 +1,19 @@
+#Factrie - Motorcycle spare parts manufacturer
+
+site link :
+
+-   React firebase hook
+-   React icons
+-   React Router Dom
+-   react toastify
+-   Bootstrap
+-   firebase
+-   Node js
+-   MongoDB
+-   Express
+-   dotenv
+-   cors
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

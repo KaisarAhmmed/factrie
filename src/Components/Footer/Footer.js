@@ -12,9 +12,9 @@ const Footer = () => {
 
     return (
         <>
-            <div className="bg-black py-20">
-                <div className="container mx-auto flex gap-8">
-                    <div className="w-3/12">
+            <div className="bg-black lg:py-20 py-16">
+                <div className="container mx-auto flex lg:flex-row flex-col gap-8">
+                    <div className="lg:w-3/12 w-full">
                         <Link to="/">
                             <img
                                 className="h-[30px]"
@@ -58,7 +58,7 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-3/12">
+                    <div className="lg:w-3/12 w-full">
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">
                             Useful Links
                         </h3>
@@ -113,7 +113,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="w-3/12">
+                    <div className="lg:w-3/12 w-full">
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">
                             Recent Products
                         </h3>
@@ -137,7 +137,7 @@ const Footer = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="w-3/12">
+                    <div className="lg:w-3/12 w-full">
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">
                             Contact Us
                         </h3>
@@ -170,13 +170,13 @@ const Footer = () => {
                 </div>
             </div>
             <div className="py-7 bg-[#111111]">
-                <div className="container mx-auto flex text-[#999]">
-                    <div className="w-6/12">
+                <div className="container mx-auto flex lg:flex-row flex-col text-[#999]">
+                    <div className="lg:w-6/12 w-full lg:justify-start justify-center">
                         <p className="text-sm font-light">
                             Copyright &copy; 2022 Factrie. All rights reserved.
                         </p>
                     </div>
-                    <div className="w-6/12 flex justify-end">
+                    <div className="lg:w-6/12 w-full flex lg:justify-end justify-center">
                         <p className="text-sm font-light">
                             Design and Developed By{" "}
                             <Link className="text-[#FE5D15]" to="/">

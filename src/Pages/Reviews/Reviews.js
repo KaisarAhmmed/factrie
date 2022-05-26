@@ -8,7 +8,7 @@ const Reviews = () => {
     return (
         <>
             <Breadcrumb pageTitle={"All Reviews"} />
-            <div className="py-20 container mx-auto grid grid-cols-3 gap-6">
+            <div className="py-20 container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {reviews?.map((review) => (
                     <SingleReview key={review._id} data={review} />
                 ))}

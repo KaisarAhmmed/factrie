@@ -37,16 +37,16 @@ const ProductDetail = () => {
             {productLoading ? (
                 <Loading></Loading>
             ) : (
-                <div className="container mx-auto flex justify-start py-20 gap-10">
-                    <div className="w-5/12 border border-solid p-7 duration-300 border-[#f9f9f9] hover:border-[#f0f0f0] group">
+                <div className="container mx-auto flex lg:flex-row flex-col justify-start lg:py-20 py-16 gap-10">
+                    <div className="lg:w-5/12 w-full border border-solid p-7 duration-300 border-[#f9f9f9] hover:border-[#f0f0f0] group">
                         <img
                             src={img}
                             alt={name}
                             className="duration-300 group-hover:scale-105 "
                         />
                     </div>
-                    <div className="w-7/12">
-                        <h1 className="font-bold text-4xl text-black mb-5 uppercase">
+                    <div className="lg:w-7/12 w-full">
+                        <h1 className="font-bold lg:text-4xl text-2xl text-black mb-5 uppercase">
                             {name}
                         </h1>
                         <p className="text-[#FE5D15] font-bold text-3xl mb-4">

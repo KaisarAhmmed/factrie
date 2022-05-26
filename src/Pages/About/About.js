@@ -7,11 +7,11 @@ const About = () => {
     return (
         <>
             <Breadcrumb pageTitle={"My Portfolio"} />
-            <div className="container py-20 mx-auto flex gap-8 justify-center">
-                <div className="w-3/12">
+            <div className="container lg:py-20 py-16 mx-auto flex lg:flex-row flex-col gap-8 justify-center">
+                <div className="lg:w-3/12 w-full">
                     <img src={Kaisar} alt="kaisar" />
                 </div>
-                <div className="w-9/12">
+                <div className="lg:w-9/12 w-full">
                     <h2 className="text-2xl font-bold uppercase mb-4">
                         Hello, I am Kaisar Ahmmed
                     </h2>
@@ -24,7 +24,7 @@ const About = () => {
                     <h3 className="mt-10 mb-4 text-xl font-bold uppercase">
                         My Skill
                     </h3>
-                    <div className="grid grid-cols-6 gap-4">
+                    <div className="grid lg:grid-cols-6 grid-cols-2 gap-4">
                         <div className="flex flex-col p-4 border border-solid text-center">
                             <div
                                 className="radial-progress mx-auto"

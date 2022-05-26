@@ -116,12 +116,12 @@ const Purchase = () => {
     return (
         <>
             <Breadcrumb pageTitle={`Purchase - ${name}`} />
-            <div className="container mx-auto py-20 flex justify-center gap-8">
+            <div className="container mx-auto lg:py-20 py-16 flex lg:flex-row flex-col-reverse justify-center gap-8">
                 {productLoading ? (
                     <Loading></Loading>
                 ) : (
                     <>
-                        <div className="w-1/2 border border-solid">
+                        <div className="lg:w-1/2 w-full border border-solid">
                             <h3 className="text-center font-semibold text-black text-2xl py-3 border-b border-solid">
                                 Billing Details
                             </h3>
@@ -219,7 +219,7 @@ const Purchase = () => {
                                 </form>
                             </div>
                         </div>
-                        <div className="w-1/2 border border-solid">
+                        <div className="lg:w-1/2 w-full border border-solid">
                             <h3 className="text-center font-semibold mb-4 text-black text-2xl py-3 border-b border-solid">
                                 Your selected product
                             </h3>

@@ -11,14 +11,14 @@ const Tools = () => {
     };
 
     return (
-        <div className="py-20 container mx-auto ">
+        <div className="lg:py-20 py-12 container mx-auto ">
             <div className="w-full">
-                <h2 className="text-center text-[30px] font-bold uppercase pb-9">
+                <h2 className="text-center lg:text-[30px] text-[24px] font-bold uppercase pb-9">
                     Our Recent Tools/Parts
                 </h2>
             </div>
             <div className="w-full">
-                <div className="container grid grid-cols-3 gap-7">
+                <div className="container grid lg:grid-cols-3 grid-cols-1 gap-7">
                     {products.slice(0, 6).map((product) => (
                         <div
                             key={product._id}

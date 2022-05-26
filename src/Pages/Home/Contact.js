@@ -10,9 +10,9 @@ const Contact = () => {
             style={{ backgroundImage: `url(${ContactImage})` }}
         >
             <div className="container mx-auto flex justify-center items-center relative z-20">
-                <div className="w-8/12 text-center">
+                <div className="lg:w-8/12 w-full text-center">
                     <BsTelephonePlus className="mx-auto text-5xl text-[#FE5D15] mb-6" />
-                    <h4 className="text-white text-3xl mb-3 font-bold">
+                    <h4 className="text-white lg:text-3xl text-2xl mb-3 font-bold">
                         Any spare parts related issues? we are happy to help
                         you.
                     </h4>
