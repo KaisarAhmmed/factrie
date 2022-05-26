@@ -6,7 +6,7 @@ const SingleReview = ({ data }) => {
     const { reviewText, reviewerImg, reviewerEmail, reviewerName, rating } =
         data;
     return (
-        <div className="border border-solid p-5 rounded">
+        <div className="border border-solid p-5 rounded flex flex-col justify-between">
             <p className="text-[#777] mb-4">{reviewText}</p>
             <div className="flex justify-start items-center">
                 <img
