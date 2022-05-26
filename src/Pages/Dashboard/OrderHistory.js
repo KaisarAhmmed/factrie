@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import Moment from "react-moment";
+import { toast } from "react-toastify";
 
 const OrderHistory = () => {
     const [{ email }] = useOutletContext();
@@ -18,6 +19,29 @@ const OrderHistory = () => {
             .then((data) => setMyOrders(data));
     }, [email]);
 
+    const handleOrderDelete = (id) => {
+        const proceed = window.confirm("Are you sure?");
+        if (proceed) {
+            const url = `http://localhost:4000/delete-order/${id}`;
+            fetch(url, {
+                method: "DELETE",
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    const remaining = myOrders.filter(
+                        (item) => item._id !== id
+                    );
+                    setMyOrders(remaining);
+                    toast.success("Product deleted successfully.");
+                });
+        }
+    };
+
     return (
         <div className="container mx-auto border border-solid p-6 rounded">
             <h3 className="mb-5 font-bold text-xl">
@@ -33,6 +57,8 @@ const OrderHistory = () => {
                             <th>Total Price</th>
                             <th className="text-center">Payment Status</th>
                             <th>Order Date</th>
+                            <th className="w-10">Transaction Id</th>
+                            <th>Cancel</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,23 +71,30 @@ const OrderHistory = () => {
                                             src={order.productImage}
                                             alt={order.productName}
                                         />
-                                        <p>{order.productName}</p>
+                                        <p>
+                                            {order.productName.slice(0, 20)}...
+                                        </p>
                                     </div>
                                 </td>
                                 <td>${order.productPrice}</td>
                                 <td>{order.quantity}</td>
                                 <td>${order.totalPrice}</td>
                                 <td className="text-center">
-                                    {order?.payment ? (
-                                        "Paid"
+                                    {order?.paid ? (
+                                        <p className="bg-green-100 text-black inline-block py-2 px-6 rounded">
+                                            Paid
+                                        </p>
                                     ) : (
                                         <>
                                             <p className="text-sm text-center mb-1">
                                                 Not Paid
                                             </p>
-                                            <button className="py-2 px-6 rounded duration-300 border border-solid text-black hover:border-black hover:bg-black hover:text-white">
+                                            <Link
+                                                to={`/dashboard/payment/${order._id}`}
+                                                className="py-2 px-6 inline-block rounded duration-300 border border-solid text-black hover:border-black hover:bg-black hover:text-white"
+                                            >
                                                 Pay Now
-                                            </button>
+                                            </Link>
                                         </>
                                     )}
                                 </td>
@@ -69,6 +102,25 @@ const OrderHistory = () => {
                                     <Moment format="MMM DD, YYYY">
                                         {order.createdAt}
                                     </Moment>
+                                </td>
+                                <td className="text-sm">
+                                    {order?.transactionId
+                                        ? order.transactionId
+                                        : ""}
+                                </td>
+                                <td>
+                                    {order?.paid ? (
+                                        "Not Available"
+                                    ) : (
+                                        <button
+                                            onClick={() =>
+                                                handleOrderDelete(order._id)
+                                            }
+                                            className="py-2 px-6 inline-block rounded duration-300 bg-red-600 text-white hover:bg-red-700 "
+                                        >
+                                            Cancel
+                                        </button>
+                                    )}
                                 </td>
                             </tr>
                         ))}
@@ -81,6 +133,8 @@ const OrderHistory = () => {
                             <th>Total Price</th>
                             <th className="text-center">Payment Status</th>
                             <th>Order Date</th>
+                            <th>Transaction Id</th>
+                            <th>Cancel</th>
                         </tr>
                     </tfoot>
                 </table>

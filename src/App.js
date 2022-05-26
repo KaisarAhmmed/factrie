@@ -24,6 +24,10 @@ import OrderHistory from "./Pages/Dashboard/OrderHistory";
 import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequiredAdmin";
 import Orders from "./Pages/Dashboard/Orders";
+import Payment from "./Pages/Dashboard/Payment";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import AddReview from "./Pages/Dashboard/AddReview";
+import PaidOrder from "./Pages/Dashboard/PaidOrder";
 
 function App() {
     return (
@@ -81,6 +85,14 @@ function App() {
                         element={<ProfileEdit />}
                     ></Route>
                     <Route
+                        path="/dashboard/add-review"
+                        element={<PaidOrder />}
+                    ></Route>
+                    <Route
+                        path="/dashboard/add-review/:pId"
+                        element={<AddReview />}
+                    ></Route>
+                    <Route
                         path="/dashboard/add-product"
                         element={
                             <RequireAdmin>
@@ -89,8 +101,20 @@ function App() {
                         }
                     ></Route>
                     <Route
+                        path="/dashboard/manage-products"
+                        element={
+                            <RequireAdmin>
+                                <ManageProducts />
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
                         path="/dashboard/my-order-history"
                         element={<OrderHistory />}
+                    ></Route>
+                    <Route
+                        path="/dashboard/payment/:orderId"
+                        element={<Payment />}
                     ></Route>
                 </Route>
                 <Route path="/register" element={<Register />}></Route>

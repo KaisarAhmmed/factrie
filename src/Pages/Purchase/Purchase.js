@@ -64,11 +64,10 @@ const Purchase = () => {
             totalPrice: orderPrice,
             quantity: orderAmount,
             productId: _id,
-            payment: false,
+            paid: false,
             createdAt: orderDate,
             ...billingData,
         };
-        console.log(orderData);
 
         const orderQuantity = parseInt(orderAmount);
         const miniOrder = parseInt(minOrder);

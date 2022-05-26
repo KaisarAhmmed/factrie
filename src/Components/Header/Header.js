@@ -112,7 +112,7 @@ const Header = () => {
                                                 title={curUser.name}
                                             />
                                         </div>
-                                        <ul className="absolute w-28 top-12 bg-white text-black text-sm py-2 shadow-sm z-10 border border-solid -left-9 text-center opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible group-hover:top-10">
+                                        <ul className="absolute w-28 top-12 bg-white text-black text-sm py-2 shadow-sm z-50 border border-solid -left-9 text-center opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible group-hover:top-10">
                                             <li className="border-b pb-1 mb-1 border-solid">
                                                 {curUser.name}
                                             </li>

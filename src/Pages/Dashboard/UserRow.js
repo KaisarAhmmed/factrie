@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import { toast } from "react-toastify";
 
 const UserRow = ({ user, refetch }) => {
-    const { name, email, role, createdAt } = user;
+    const { name, email, role } = user;
     const makeAdmin = () => {
         fetch(`http://localhost:4000/user/admin/${email}`, {
             method: "PUT",

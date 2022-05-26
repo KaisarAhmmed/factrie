@@ -44,10 +44,26 @@ const Dashboard = () => {
                                         My Order History
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link
+                                        className="p-4 block border-b"
+                                        to="/dashboard/add-review"
+                                    >
+                                        Add Review
+                                    </Link>
+                                </li>
                             </>
                         )}
                         {admin && (
                             <>
+                                <li>
+                                    <Link
+                                        className="p-4 block border-b"
+                                        to="/dashboard/manage-products"
+                                    >
+                                        Manage Products
+                                    </Link>
+                                </li>
                                 <li>
                                     <Link
                                         className="p-4 block border-b"
@@ -74,11 +90,6 @@ const Dashboard = () => {
                                 </li>
                             </>
                         )}
-                        <li>
-                            <Link className="p-4 block" to="/dashboard/payment">
-                                Payment
-                            </Link>
-                        </li>
                     </ul>
                 </div>
                 <div className="w-9/12">

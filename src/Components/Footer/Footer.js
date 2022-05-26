@@ -5,8 +5,11 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { ImMap2 } from "react-icons/im";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
+import useProducts from "../../Hooks/useProducts";
 
 const Footer = () => {
+    const [products] = useProducts();
+
     return (
         <>
             <div className="bg-black py-20">
@@ -114,6 +117,25 @@ const Footer = () => {
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">
                             Recent Products
                         </h3>
+                        {products.slice(0, 3).map((item) => (
+                            <div
+                                key={item._id}
+                                className="mb-4 flex flex-row items-center"
+                            >
+                                <img
+                                    src={item.img}
+                                    alt={item.name}
+                                    className="w-14 mr-3 h-14 object-cover"
+                                />
+                                <div className="text-[#999]">
+                                    <p>{item.name.slice(0, 25)}...</p>
+                                    <p className="text-[#FD5C16]">
+                                        {" "}
+                                        ${item.price}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                     <div className="w-3/12">
                         <h3 className="text-white text-2xl font-semibold tracking-wider mb-8">

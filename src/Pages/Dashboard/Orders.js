@@ -53,10 +53,18 @@ const OrderHistory = () => {
                                 <td>{order.quantity}</td>
                                 <td>${order.totalPrice}</td>
                                 <td className="text-center">
-                                    {order?.payment ? "Paid" : "Not Paid"}
+                                    {order?.paid ? (
+                                        <p className="bg-green-100 text-black inline-block py-2 px-6 rounded">
+                                            Paid
+                                        </p>
+                                    ) : (
+                                        <p className="bg-red-100 text-black inline-block py-2 px-3 rounded">
+                                            Pending
+                                        </p>
+                                    )}
                                 </td>
                                 <td>
-                                    <Moment format="MMM DD, YYYY">
+                                    <Moment format="MMM DD, YYYY - HH:MM a">
                                         {order.createdAt}
                                     </Moment>
                                 </td>
