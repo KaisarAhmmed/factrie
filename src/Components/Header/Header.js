@@ -71,12 +71,6 @@ const Header = () => {
                             alt="manufacturer"
                         />
                     </Link>
-                    <span
-                        className="py-2 mr-2 cursor-pointer hidden lg:block "
-                        onClick={handleMobileMenu}
-                    >
-                        <BiMenu className="text-4xl" />
-                    </span>
                 </div>
                 <div
                     className={`lg:w-8/12 w-full hidden lg:block duration-300 ${
