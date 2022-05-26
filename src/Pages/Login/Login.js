@@ -25,6 +25,12 @@ const Login = () => {
     let logInError;
     let from = location.state?.from?.pathname || "/";
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
+
     if (loading) {
         return <Loading></Loading>;
     }
