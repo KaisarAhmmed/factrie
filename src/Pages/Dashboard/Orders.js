@@ -6,7 +6,7 @@ const OrderHistory = () => {
     const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:4000/all-orders/`;
+        const url = `https://mysterious-oasis-06902.herokuapp.com/all-orders/`;
         fetch(url, {
             method: "GET",
             headers: {

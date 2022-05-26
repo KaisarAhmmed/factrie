@@ -8,7 +8,7 @@ const OrderHistory = () => {
     const [myOrders, setMyOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:4000/get-orders/${email}`;
+        const url = `https://mysterious-oasis-06902.herokuapp.com/get-orders/${email}`;
         fetch(url, {
             method: "GET",
             headers: {
@@ -22,7 +22,7 @@ const OrderHistory = () => {
     const handleOrderDelete = (id) => {
         const proceed = window.confirm("Are you sure?");
         if (proceed) {
-            const url = `http://localhost:4000/delete-order/${id}`;
+            const url = `https://mysterious-oasis-06902.herokuapp.com/delete-order/${id}`;
             fetch(url, {
                 method: "DELETE",
                 headers: {

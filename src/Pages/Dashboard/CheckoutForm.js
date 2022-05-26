@@ -13,14 +13,19 @@ const CheckoutForm = ({ orderDetail }) => {
     const { _id, totalPrice, name, email } = orderDetail;
 
     useEffect(() => {
-        fetch("http://localhost:4000/create-payment-intent", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            body: JSON.stringify({ totalPrice }),
-        })
+        fetch(
+            "https://mysterious-oasis-06902.herokuapp.com/create-payment-intent",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem(
+                        "accessToken"
+                    )}`,
+                },
+                body: JSON.stringify({ totalPrice }),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.clientSecret) {
@@ -76,16 +81,19 @@ const CheckoutForm = ({ orderDetail }) => {
                 appointment: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`http://localhost:4000/payment/${_id}`, {
-                method: "PATCH",
-                headers: {
-                    "content-type": "application/json",
-                    authorization: `Bearer ${localStorage.getItem(
-                        "accessToken"
-                    )}`,
-                },
-                body: JSON.stringify(payment),
-            })
+            fetch(
+                `https://mysterious-oasis-06902.herokuapp.com/payment/${_id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                            "accessToken"
+                        )}`,
+                    },
+                    body: JSON.stringify(payment),
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     setProcessing(false);

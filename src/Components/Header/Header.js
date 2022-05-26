@@ -72,7 +72,7 @@ const Header = () => {
                         />
                     </Link>
                     <span
-                        className="py-2 mr-2 cursor-pointer"
+                        className="py-2 mr-2 cursor-pointer hidden lg:block "
                         onClick={handleMobileMenu}
                     >
                         <BiMenu className="text-4xl" />

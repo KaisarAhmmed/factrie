@@ -51,13 +51,16 @@ const ProfileEdit = () => {
                     const img = result.data.url;
                     const udpateData = { ...values, img };
                     if (email) {
-                        fetch(`http://localhost:4000/update-user/${email}`, {
-                            method: "PUT",
-                            headers: {
-                                "content-type": "application/json",
-                            },
-                            body: JSON.stringify(udpateData),
-                        })
+                        fetch(
+                            `https://mysterious-oasis-06902.herokuapp.com/update-user/${email}`,
+                            {
+                                method: "PUT",
+                                headers: {
+                                    "content-type": "application/json",
+                                },
+                                body: JSON.stringify(udpateData),
+                            }
+                        )
                             .then((res) => res.json())
                             .then((data) => {
                                 toast.success("Profile updated successfully.");

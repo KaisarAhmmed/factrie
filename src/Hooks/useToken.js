@@ -7,13 +7,16 @@ const useToken = (user) => {
         const email = user?.user?.email;
         const currentUser = { email };
         if (email) {
-            fetch(`http://localhost:4000/user/${email}`, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(currentUser),
-            })
+            fetch(
+                `https://mysterious-oasis-06902.herokuapp.com/user/${email}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                }
+            )
                 .then((res) => res.json())
                 .then((data) => {
                     const accessToken = data.token;

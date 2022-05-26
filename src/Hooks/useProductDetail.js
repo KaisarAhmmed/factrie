@@ -6,7 +6,7 @@ const useProductDetail = (productId) => {
 
     useEffect(() => {
         setProductLoading(true);
-        const url = `http://localhost:4000/product-detail/${productId}`;
+        const url = `https://mysterious-oasis-06902.herokuapp.com/product-detail/${productId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {

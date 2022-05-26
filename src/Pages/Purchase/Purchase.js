@@ -83,7 +83,7 @@ const Purchase = () => {
             return;
         }
 
-        fetch("http://localhost:4000/place-order", {
+        fetch("https://mysterious-oasis-06902.herokuapp.com/place-order", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -97,13 +97,16 @@ const Purchase = () => {
                 toast.success("Order placed successfully.");
                 if (data.acknowledged) {
                     console.log(updatedStock);
-                    fetch(`http://localhost:4000/product/${_id}`, {
-                        method: "PUT",
-                        headers: {
-                            "content-type": "application/json",
-                        },
-                        body: JSON.stringify(updatedStock),
-                    })
+                    fetch(
+                        `https://mysterious-oasis-06902.herokuapp.com/product/${_id}`,
+                        {
+                            method: "PUT",
+                            headers: {
+                                "content-type": "application/json",
+                            },
+                            body: JSON.stringify(updatedStock),
+                        }
+                    )
                         .then((res) => res.json())
                         .then((data) => {
                             console.log(`updated stock ${data}`);

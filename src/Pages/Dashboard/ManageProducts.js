@@ -9,7 +9,7 @@ const ManageProducts = () => {
     const handleProductDelete = (id) => {
         const proceed = window.confirm("Are you sure?");
         if (proceed) {
-            const url = `http://localhost:4000/delete-product/${id}`;
+            const url = `https://mysterious-oasis-06902.herokuapp.com/delete-product/${id}`;
             fetch(url, {
                 method: "DELETE",
                 headers: {

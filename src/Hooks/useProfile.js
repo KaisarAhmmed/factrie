@@ -4,7 +4,7 @@ const useProfile = (email) => {
     const [curUser, setCurUser] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:4000/user/${email}`)
+        fetch(`https://mysterious-oasis-06902.herokuapp.com/user/${email}`)
             .then((res) => res.json())
             .then((data) => setCurUser(data));
     }, [email]);

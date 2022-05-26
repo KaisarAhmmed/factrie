@@ -33,7 +33,7 @@ const AddReview = () => {
         event.preventDefault();
         console.log(reviewData);
 
-        fetch("http://localhost:4000/review", {
+        fetch("https://mysterious-oasis-06902.herokuapp.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

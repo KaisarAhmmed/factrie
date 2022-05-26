@@ -44,13 +44,16 @@ const AddProduct = () => {
                         createdAt: createDate,
                     };
                     // send to your database
-                    fetch("http://localhost:4000/products", {
-                        method: "POST",
-                        headers: {
-                            "content-type": "application/json",
-                        },
-                        body: JSON.stringify(product),
-                    })
+                    fetch(
+                        "https://mysterious-oasis-06902.herokuapp.com/products",
+                        {
+                            method: "POST",
+                            headers: {
+                                "content-type": "application/json",
+                            },
+                            body: JSON.stringify(product),
+                        }
+                    )
                         .then((res) => res.json())
                         .then((inserted) => {
                             if (inserted.insertedId) {

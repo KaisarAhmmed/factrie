@@ -8,7 +8,7 @@ const PaidOrder = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:4000/get-orders/${email}`;
+        const url = `https://mysterious-oasis-06902.herokuapp.com/get-orders/${email}`;
         fetch(url, {
             method: "GET",
             headers: {

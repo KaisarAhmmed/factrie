@@ -11,7 +11,7 @@ const stripePromise = loadStripe("pk_test_zEMcYMCYJGnC4SFipK7K8D1P");
 const Payment = () => {
     const { orderId } = useParams();
 
-    const url = `http://localhost:4000/booking-order/${orderId}`;
+    const url = `https://mysterious-oasis-06902.herokuapp.com/booking-order/${orderId}`;
 
     const { data: orderDetail, isLoading } = useQuery(
         ["booking", orderId],
