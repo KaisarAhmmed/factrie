@@ -14,7 +14,6 @@ import Products from "./Pages/Products/Products";
 import Reviews from "./Pages/Reviews/Reviews";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import User from "./Pages/Dashboard/User";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import AdminData from "./Pages/Dashboard/AdminData";
 import Profile from "./Pages/Dashboard/Profile";
@@ -22,6 +21,9 @@ import ProfileEdit from "./Pages/Dashboard/ProfileEdit";
 import Purchase from "./Pages/Purchase/Purchase";
 import ProductDetail from "./Pages/Products/ProductDetail";
 import OrderHistory from "./Pages/Dashboard/OrderHistory";
+import Users from "./Pages/Dashboard/Users";
+import RequireAdmin from "./Pages/Login/RequiredAdmin";
+import Orders from "./Pages/Dashboard/Orders";
 
 function App() {
     return (
@@ -54,7 +56,22 @@ function App() {
                     }
                 >
                     <Route index element={<AdminData></AdminData>}></Route>
-                    <Route path="/dashboard/user" element={<User />}></Route>
+                    <Route
+                        path="/dashboard/users"
+                        element={
+                            <RequireAdmin>
+                                <Users />
+                            </RequireAdmin>
+                        }
+                    ></Route>
+                    <Route
+                        path="/dashboard/order-history"
+                        element={
+                            <RequireAdmin>
+                                <Orders />
+                            </RequireAdmin>
+                        }
+                    ></Route>
                     <Route
                         path="/dashboard/profile"
                         element={<Profile />}
@@ -65,7 +82,11 @@ function App() {
                     ></Route>
                     <Route
                         path="/dashboard/add-product"
-                        element={<AddProduct />}
+                        element={
+                            <RequireAdmin>
+                                <AddProduct />
+                            </RequireAdmin>
+                        }
                     ></Route>
                     <Route
                         path="/dashboard/my-order-history"

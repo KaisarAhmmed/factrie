@@ -3,11 +3,10 @@ import { useOutletContext } from "react-router-dom";
 import Moment from "react-moment";
 
 const OrderHistory = () => {
-    const [{ email }] = useOutletContext();
-    const [myOrders, setMyOrders] = useState([]);
+    const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:4000/get-orders/${email}`;
+        const url = `http://localhost:4000/all-orders/`;
         fetch(url, {
             method: "GET",
             headers: {
@@ -15,19 +14,20 @@ const OrderHistory = () => {
             },
         })
             .then((res) => res.json())
-            .then((data) => setMyOrders(data));
-    }, [email]);
+            .then((data) => setAllOrders(data));
+    }, []);
 
     return (
         <div className="container mx-auto border border-solid p-6 rounded">
             <h3 className="mb-5 font-bold text-xl">
-                My orders <span>{myOrders.length}</span>
+                My orders <span>{allOrders.length}</span>
             </h3>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th>Product</th>
+                            <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
@@ -36,10 +36,10 @@ const OrderHistory = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {myOrders?.map((order) => (
+                        {allOrders?.map((order) => (
                             <tr key={order._id}>
                                 <td>
-                                    <div className="flex flex-row justify-start items-center">
+                                    <div className="flex flex-col justify-start items-start">
                                         <img
                                             className="w-16 mb-1.5 mr-2"
                                             src={order.productImage}
@@ -48,22 +48,12 @@ const OrderHistory = () => {
                                         <p>{order.productName}</p>
                                     </div>
                                 </td>
+                                <td>{order.name}</td>
                                 <td>${order.productPrice}</td>
                                 <td>{order.quantity}</td>
                                 <td>${order.totalPrice}</td>
                                 <td className="text-center">
-                                    {order?.payment ? (
-                                        "Paid"
-                                    ) : (
-                                        <>
-                                            <p className="text-sm text-center mb-1">
-                                                Not Paid
-                                            </p>
-                                            <button className="py-2 px-6 rounded duration-300 border border-solid text-black hover:border-black hover:bg-black hover:text-white">
-                                                Pay Now
-                                            </button>
-                                        </>
-                                    )}
+                                    {order?.payment ? "Paid" : "Not Paid"}
                                 </td>
                                 <td>
                                     <Moment format="MMM DD, YYYY">
@@ -76,6 +66,7 @@ const OrderHistory = () => {
                     <tfoot>
                         <tr>
                             <th>Product</th>
+                            <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Total Price</th>

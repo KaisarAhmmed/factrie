@@ -6,12 +6,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.config";
 import { signOut } from "firebase/auth";
 import UserPlaceholder from "../../Images/user-placeholder.png";
+import useProfile from "../../Hooks/useProfile";
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const curUser = useProfile(user?.email);
 
     const handleSignOut = () => {
         signOut(auth);
+        localStorage.removeItem("accessToken");
     };
 
     return (
@@ -100,14 +103,18 @@ const Header = () => {
                                     <div className="avatar relative group">
                                         <div className="w-10 rounded-full">
                                             <img
-                                                src={UserPlaceholder}
-                                                alt={user.displayName}
-                                                title={user.displayName}
+                                                src={
+                                                    curUser.img
+                                                        ? curUser.img
+                                                        : UserPlaceholder
+                                                }
+                                                alt={curUser.name}
+                                                title={curUser.name}
                                             />
                                         </div>
                                         <ul className="absolute w-28 top-12 bg-white text-black text-sm py-2 shadow-sm z-10 border border-solid -left-9 text-center opacity-0 invisible duration-300 group-hover:opacity-100 group-hover:visible group-hover:top-10">
                                             <li className="border-b pb-1 mb-1 border-solid">
-                                                {user.displayName}
+                                                {curUser.name}
                                             </li>
                                             <li>
                                                 <button
