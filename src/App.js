@@ -122,7 +122,7 @@ function App() {
                     path="/reset-password"
                     element={<ResetPassword />}
                 ></Route>
-                <Route path="/about" element={<About />}></Route>
+                <Route path="/my-portfolio" element={<About />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
             <Footer />
