@@ -100,7 +100,7 @@ const Header = () => {
                         </li>
                         <li>
                             <Link className="menu-url" to="/blog">
-                                Blog
+                                Blog 2
                             </Link>
                         </li>
 
